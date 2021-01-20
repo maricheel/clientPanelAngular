@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">New Client</h4>
+                <form (ngSubmit)="onSubmit()" #formClient="ngForm" action="">
+
+                    <div class="form-group">
+                        <label for="my-input">first name</label>
+                        <input 
+                            id="my-input" 
+                            class="form-control"
+                            type="text"
+                            name="first"
+                            [(ngModel)]="client.first"
+                            #first="ngModel"
+                            required
+                            minlength="3"
+                            [ngClass]="{'is-invalid': first.errors && first.touched}"
+                        >
+                        <div [hidden]="!first.errors?.required" class="invalid-feedback">First name is required</div>
+                        <div [hidden]="!first.errors?.minlength" class="invalid-feedback">Must be at least 3 chars</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="my-input">last name</label>
+                        <input 
+                            id="my-input" 
+                            class="form-control"
+                            type="text"
+                            name="first"
+                            [(ngModel)]="client.last"
+                            #last="ngModel"
+                            required
+                            minlength="3"
+                            [ngClass]="{'is-invalid': last.errors && last.touched}"
+                        >
+                        <div [hidden]="!last.errors?.required" class="invalid-feedback">last name is required</div>
+                        <div [hidden]="!last.errors?.minlength" class="invalid-feedback">Must be at least 3 chars</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="my-input">email</label>
+                        <input 
+                            id="my-input" 
+                            class="form-control"
+                            type="text"
+                            name="email"
+                            [(ngModel)]="client.email"
+                            #email="ngModel"
+                            required
+                            minlength="3"
+                            [ngClass]="{'is-invalid': email.errors && email.touched}"
+                        >
+                        <div [hidden]="!email.errors?.required" class="invalid-feedback">email  is required</div>
+                        <div [hidden]="!email.errors?.minlength" class="invalid-feedback">Must be at least 3 chars</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="my-input">phone</label>
+                        <input 
+                            id="my-input" 
+                            class="form-control"
+                            type="text"
+                            name="phone"
+                            [(ngModel)]="client.phone"
+                            #phone="ngModel"
+                            required
+                            minlength="3"
+                            [ngClass]="{'is-invalid': phone.errors && phone.touched}"
+                        >
+                        <div [hidden]="!phone.errors?.required" class="invalid-feedback">phone is required</div>
+                        <div [hidden]="!phone.errors?.minlength" class="invalid-feedback">Must be at least 3 chars</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="my-input">balance</label>
+                        <input 
+                            id="my-input" 
+                            class="form-control"
+                            type="text"
+                            name="balance"
+                            [(ngModel)]="client.balance"
+                            #balance="ngModel"
+                            required
+                            minlength="3"
+                            [ngClass]="{'is-invalid': balance.errors && balance.touched}"
+                        >
+                        <div [hidden]="!balance.errors?.required" class="invalid-feedback">phone is required</div>
+                        <div [hidden]="!balance.errors?.minlength" class="invalid-feedback">Must be at least 3 chars</div>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit" [disabled]="!formClient.valid">
+                        submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

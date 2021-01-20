@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+       <div class="btn-group fa-pull-right" role="group" >
+           <button class="btn btn-warning" routerLink="/client/edit/{{client.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+           <button class="btn btn-dark" (click)="delete()"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+       </div>
+    </div>
+</div>
+<flash-messages></flash-messages>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{client.last}}</h4>
+                <div class="row">
+                      <div class="col-md-8">
+                     <ul class="list-group">
+                        <li class="list-group-item ">phone : {{client.phone}}</li>
+                        <li class="list-group-item ">email : {{client.email}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    balance <button (click)="showBal=!showBal" class="btn btn-success"><i class="fa fa-pencil"></i></button>
+                    <h4 [ngClass]="{'text-danger':showBal,'text-success':!showBal}">{{client.balance |currency}}</h4>
+                    
+                    <input (keyup.enter)="onKeyPres()" *ngIf="showBal"
+                        [(ngModel)]="client.balance"
+                        type="text"
+                        class="form-control"
+                        name=""
+                        id=""
+                        aria-describedby="helpId"
+                        placeholder=""
+                    >
+                   
+                </div>
+
+
+                </div>
+              
+               
+                  
+            </div>
+        </div>
+    </div>
+</div>
